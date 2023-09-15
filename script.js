@@ -18,27 +18,30 @@ import * as THREE from 'three';
 			const container = document.getElementById( 'container' );
 			let composer;
 
-			const renderer = new THREE.WebGLRenderer( { antialias: true } );
+			const renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true} );
 			renderer.setPixelRatio( window.devicePixelRatio );
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			renderer.shadowMap.enabled = true;
+			renderer.shadowMap.type = THREE.PCFSoftShadowMap
 
 			
 			container.appendChild( renderer.domElement );
 
 			const scene = new THREE.Scene();
-			scene.background = new THREE.Color( 0x222222 );
-			scene.fog = new THREE.Fog( 0x444444, 15, 25 );
+			renderer.setClearColor( 0x000000, 0 ); // the default
+			scene.background = null
+			scene.fog = new THREE.Fog( 0x4a6de4, 10, 25 );
 
 
 			const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, .1, 50);
-			camera.position.set(-9, 1, -2);
+			camera.position.set(2, 1, 6);
 			
 
 			const controls = new OrbitControls( camera, renderer.domElement );
 			controls.target.set( 0, 0.5, 0 );
 			controls.update();
 			controls.enablePan = false;
+			controls.zoomSpeed = .4;
 			controls.enableDamping = true;
 			controls.minDistance = 4;
 			controls.maxDistance = 30;
@@ -51,12 +54,13 @@ import * as THREE from 'three';
 
 
 			var loadingDiv = document.getElementById("loadingDiv");
+			var pageDiv = document.getElementById("pageDiv");
 
 			loader.load( 'models/keames.glb', function ( gltf ) {
 
 				const model = gltf.scene;
-				model.position.set( 0, -1, 0 );
-				model.scale.set( 0.16, 0.16, 0.16);
+				model.position.set(0, -.5, -1);
+				model.scale.set( 0.8, 0.8, 0.8);
 				scene.add( model );
 
 				model.traverse( function ( object ) {
@@ -64,10 +68,12 @@ import * as THREE from 'three';
 					if ( object.isMesh ){
 						object.castShadow = true;
 						object.receiveShadow = true;
+						object.material.shading = THREE.PhongShading;
 					}
 
 
 				loadingDiv.classList.add("hidden");
+				pageDiv.classList.remove("hidden");
 				} );
 
 				animate();
@@ -82,10 +88,11 @@ import * as THREE from 'three';
 
 			const bloomPass = new UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
 			bloomPass.threshold = .1;
-			bloomPass.strength = .2,
+			bloomPass.strength = .1,
 			bloomPass.radius = .03;
 
-			const outputPass = new OutputPass( THREE.ReinhardToneMapping );
+			const outputPass = new OutputPass( THREE.CineonToneMapping );
+
 
 			composer = new EffectComposer( renderer );
 			composer.addPass( renderScene );
@@ -93,18 +100,18 @@ import * as THREE from 'three';
 			composer.addPass( outputPass );
 
 
-			const dirLight = new THREE.DirectionalLight( 0xffddde , 12);
+			const dirLight = new THREE.DirectionalLight( 0xffddde , 20);
 			
 				dirLight.position.set( -4, 8, 10);
 				dirLight.castShadow = true;
 				// dirLight.shadow.camera.near = 0.1;
 				// dirLight.shadow.camera.far = 40;
-				dirLight.shadow.mapSize.width = 1024;
-				dirLight.shadow.mapSize.height = 1024;
+				dirLight.shadow.mapSize.width = 2048;
+				dirLight.shadow.mapSize.height = 2048;
 				scene.add( dirLight );
 
 			
-			scene.add( new THREE.HemisphereLight( 0xffddde, 0x785099, .3 ));
+			scene.add( new THREE.HemisphereLight( 0xffddde, 0xb7c6f7, 1 ));
 
 
 			window.onresize = function () {
@@ -116,12 +123,7 @@ import * as THREE from 'three';
 				camera.updateProjectionMatrix();
 
 				renderer.setSize( width, height );
-
-				bloomComposer.setSize( width, height );
 				composer.setSize( width, height );
-
-				render();
-
 			};
 
 
