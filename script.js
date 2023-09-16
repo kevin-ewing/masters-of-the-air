@@ -30,8 +30,7 @@ import * as THREE from 'three';
 			const scene = new THREE.Scene();
 			renderer.setClearColor( 0x000000, 0 ); // the default
 			scene.background = null
-			scene.fog = new THREE.Fog( 0x4a6de4, 10, 25 );
-
+			scene.fog = new THREE.Fog( 0x7babe3, 13, 25 );
 
 			const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, .1, 50);
 			camera.position.set(2, 1, 6);
@@ -60,7 +59,7 @@ import * as THREE from 'three';
 
 				const model = gltf.scene;
 				model.position.set(0, -.5, -1);
-				model.scale.set( 0.8, 0.8, 0.8);
+				model.scale.set( 0.7, 0.7, 0.7);
 				scene.add( model );
 
 				model.traverse( function ( object ) {
@@ -69,6 +68,7 @@ import * as THREE from 'three';
 						object.castShadow = true;
 						object.receiveShadow = true;
 						object.material.shading = THREE.PhongShading;
+						object.material
 					}
 
 
@@ -101,14 +101,12 @@ import * as THREE from 'three';
 
 
 			const dirLight = new THREE.DirectionalLight( 0xffddde , 20);
-			
-				dirLight.position.set( -4, 8, 10);
-				dirLight.castShadow = true;
-				// dirLight.shadow.camera.near = 0.1;
-				// dirLight.shadow.camera.far = 40;
-				dirLight.shadow.mapSize.width = 2048;
-				dirLight.shadow.mapSize.height = 2048;
-				scene.add( dirLight );
+		
+			dirLight.position.set( -4, 8, 10);
+			dirLight.castShadow = true;
+			dirLight.shadow.mapSize.width = 2048;
+			dirLight.shadow.mapSize.height = 2048;
+			scene.add( dirLight );
 
 			
 			scene.add( new THREE.HemisphereLight( 0xffddde, 0xb7c6f7, 1 ));
