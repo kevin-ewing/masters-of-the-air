@@ -68,7 +68,6 @@ import * as THREE from 'three';
 						object.castShadow = true;
 						object.receiveShadow = true;
 						object.material.shading = THREE.PhongShading;
-						object.material
 					}
 
 

@@ -37,15 +37,6 @@ html, body {
 	margin-bottom: 16px;
 }
 
-.loader {
-	border: 4px solid #444444;
-	border-top: 4px solid #f3f3f3;
-	border-radius: 50%;
-	width: 40px;
-	height: 40px;
-	animation: spin 2s linear infinite;
-}
-
 @keyframes spin {
 	0% {
 	transform: rotate(0deg);
@@ -107,7 +98,8 @@ pageDiv {
 .info {
 	font-family: 'EB Garamond', serif;
 	-webkit-text-stroke-width: 0px;
-	font-size: calc(2vw + 12px);
+	font-size: calc(2vw + 20px);
+	white-space: nowrap;
     text-align: left;
 	text-shadow: none;
 	-webkit-text-stroke-color: none;
@@ -116,7 +108,7 @@ pageDiv {
 
 .the {
 	font-family: 'Oranienbaum', serif;
-	font-size: calc(3vw + 13px);
+	font-size: calc(3vw + 20px);
     text-align: left;
 }
 
@@ -125,8 +117,35 @@ pageDiv {
 	text-align-last: justify;
 	font-size: 18vw;
     white-space: nowrap;
+	display: flex;
 }
 
+.supplementalInfo {
+	display: flex;
+	flex-wrap: wrap; /* Allow items to wrap to the next line when needed */
+	position: absolute;
+    left: 50%;
+    top: 70%;
+	width: 90%;
+	z-index: -1;
+    transform: translate(-50%, -50%);
+	font-size: calc(1vw + 15px);
+	font-family: 'EB Garamond', serif;
+	white-space: nowrap;
+  }
+  
+  .left-infoBox, .right-infoBox {
+	flex: 1; /* Make both divs equally flexible */
+	padding: 20px; /* Add some spacing between divs */
+	box-sizing: border-box; /* Include padding in the width calculation */
+  }
+  
+  @media screen and (max-width: 500px) {
+	/* Adjust the max-width value to your desired breakpoint */
+	.left-infoBox, .right-infoBox {
+	  flex: 100%; /* Make them stack on top of each other */
+	}
+  }
 
 
 html {
@@ -154,6 +173,59 @@ h2 {
 	-ms-user-select: none;
 	user-select: none;
 	pointer-events: none;
+	z-index: 1;
+	text-align: right;
+	font-family: 'Kanit', sans-serif;
+	color: white;
+	font-weight: 900;
+}
+
+/* CSS */
+.button-81 {
+  background-color: #fff;
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #4e7bae;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: .2;
+  padding: 1rem 1.6rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-81:hover {
+  background-color: #88b1ce;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .button-81 {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
+}
+
+#buy {
+	position: absolute;
+	line-height: 0;
+	bottom: 10px;
+	width: 55%;
+	box-sizing: border-box;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 	z-index: 1;
 	text-align: right;
 	font-family: 'Kanit', sans-serif;
