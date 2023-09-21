@@ -4,8 +4,12 @@
 body {
 	margin: 0;
 	padding: 0;
+	color: #88b1ce;
+	background:
+		linear-gradient(#88b1ce 1px, transparent 1px),
+		linear-gradient(90deg, #88b1ce 1px, transparent 1px);
 	background-color: #4e7bae;
-	color: #000;
+	background-size: calc(3vw + 10px) calc(3vw + 10px);; /* Adjust the size of the grid lines */
 }
 
 html, body {
