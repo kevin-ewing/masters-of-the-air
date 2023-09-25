@@ -107,6 +107,17 @@ pageDiv {
 	-webkit-text-fill-color: #88b1ce;
 }
 
+.designer {
+	font-family: 'EB Garamond', serif;
+	-webkit-text-stroke-width: 0px;
+	font-size: calc(1vw + 20px);
+	white-space: nowrap;
+    text-align: left;
+	text-shadow: none;
+	-webkit-text-stroke-color: none;
+	-webkit-text-fill-color: #88b1ce;
+}
+
 
 .the {
 	font-family: 'Oranienbaum', serif;
@@ -158,8 +169,26 @@ pageDiv {
 	.supplementalInfo{
 		font-size: calc(16px);
 	}
+	.designer{
+		font-size: calc(16px);
+	}
   }
 
+  @media screen and (max-width: 400px) {
+	/* Media query for screens 768px and smaller */
+	.info {
+		font-size: calc(30px);
+	}
+	.the {
+		font-size: calc(20px);
+	}
+	.supplementalInfo{
+		font-size: calc(14px);
+	}
+	.designer{
+		font-size: calc(15px);
+	}
+  }
 
 html {
 	overflow: hidden;
