@@ -95,6 +95,7 @@ pageDiv {
 	-webkit-text-fill-color: transparent;
 }
 
+/* Default style */
 .info {
 	font-family: 'EB Garamond', serif;
 	-webkit-text-stroke-width: 0px;
@@ -105,6 +106,7 @@ pageDiv {
 	-webkit-text-stroke-color: none;
 	-webkit-text-fill-color: #88b1ce;
 }
+
 
 .the {
 	font-family: 'Oranienbaum', serif;
@@ -144,6 +146,17 @@ pageDiv {
 	/* Adjust the max-width value to your desired breakpoint */
 	.left-infoBox, .right-infoBox {
 	  flex: 100%; /* Make them stack on top of each other */
+	}
+
+	/* Media query for screens 768px and smaller */
+	.info {
+		font-size: calc(30px);
+	}
+	.the {
+		font-size: calc(20px);
+	}
+	.supplementalInfo{
+		font-size: calc(16px);
 	}
   }
 
