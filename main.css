@@ -159,22 +159,14 @@ pageDiv {
 	  flex: 100%; /* Make them stack on top of each other */
 	}
 
-	/* Media query for screens 768px and smaller */
-	.info {
-		font-size: calc(30px);
+	.title-container-outline, .title-container {
+		top: 20%;
 	}
-	.the {
-		font-size: calc(20px);
-	}
-	.supplementalInfo{
-		font-size: calc(16px);
-	}
-	.designer{
-		font-size: calc(16px);
-	}
-  }
 
-  @media screen and (max-width: 400px) {
+	.supplementalInfo {
+		top: 60%;
+	}
+
 	/* Media query for screens 768px and smaller */
 	.info {
 		font-size: calc(30px);
@@ -183,10 +175,10 @@ pageDiv {
 		font-size: calc(20px);
 	}
 	.supplementalInfo{
-		font-size: calc(14px);
+		font-size: calc(16px);
 	}
 	.designer{
-		font-size: calc(15px);
+		font-size: calc(16px);
 	}
   }
 
