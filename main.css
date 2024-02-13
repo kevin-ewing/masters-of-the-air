@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Oranienbaum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Oranienbaum&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
 	margin: 0;
 	padding: 0;
-	color: #88b1ce;
-	background:
-		linear-gradient(#88b1ce 1px, transparent 1px),
-		linear-gradient(90deg, #88b1ce 1px, transparent 1px);
 	background-color: #4e7bae;
 	background-size: calc(3vw + 10px) calc(3vw + 10px);; /* Adjust the size of the grid lines */
 }
@@ -37,13 +33,20 @@ html, body {
 	margin-bottom: 16px;
 }
 
-@keyframes spin {
-	0% {
-	transform: rotate(0deg);
-	}
-	100% {
-	transform: rotate(360deg);
-	}
+#apple-logo {
+	position: absolute;
+	line-height: 0;
+	width: 100%;
+	box-sizing: border-box;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	z-index: 1;
+	color: white;
+	max-height: 5rem;
+	margin-top: -8rem;
+	align-items: center;
 }
 
 .hidden {
@@ -72,66 +75,33 @@ pageDiv {
 	-webkit-text-stroke-width: 2px;
 	-webkit-text-fill-color: #ffffff;
 	-webkit-text-stroke-color: #ffffff;
-	text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Adjust the values as needed */
-}
-
-.title-container-outline {
-    position: absolute;
-    left: 50%;
-    top: 30%;
-	width: 90%;
-    transform: translate(-50%, -50%);
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    pointer-events: none;
-    z-index: 1;
-	line-height: .8;
-	text-align: justify;
-	-webkit-text-stroke-width: 2px;
-	opacity: 0.5;
-	-webkit-text-stroke-color: #ffffff;
-	-webkit-text-fill-color: transparent;
 }
 
 /* Default style */
 .info {
-	font-family: 'EB Garamond', serif;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
 	-webkit-text-stroke-width: 0px;
 	font-size: calc(2vw + 20px);
 	white-space: nowrap;
     text-align: left;
 	text-shadow: none;
 	-webkit-text-stroke-color: none;
-	-webkit-text-fill-color: #88b1ce;
+	-webkit-text-fill-color: #efe7d4;
 }
 
-.designer {
-	font-family: 'EB Garamond', serif;
+.producers {
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
 	-webkit-text-stroke-width: 0px;
 	font-size: calc(1vw + 20px);
 	white-space: nowrap;
     text-align: left;
 	text-shadow: none;
 	-webkit-text-stroke-color: none;
-	-webkit-text-fill-color: #88b1ce;
+	-webkit-text-fill-color: #efe7d4;
 }
 
-
-.the {
-	font-family: 'Oranienbaum', serif;
-	font-size: calc(3vw + 20px);
-    text-align: left;
-}
-
-.title {
-	font-family: 'Oranienbaum', serif;
-	text-align-last: justify;
-	font-size: 18vw;
-    white-space: nowrap;
-	display: flex;
-}
 
 .supplementalInfo {
 	display: flex;
@@ -143,43 +113,9 @@ pageDiv {
 	z-index: -1;
     transform: translate(-50%, -50%);
 	font-size: calc(1vw + 15px);
-	font-family: 'EB Garamond', serif;
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
 	white-space: nowrap;
-  }
-  
-  .left-infoBox, .right-infoBox {
-	flex: 1; /* Make both divs equally flexible */
-	padding: 20px; /* Add some spacing between divs */
-	box-sizing: border-box; /* Include padding in the width calculation */
-  }
-  
-  @media screen and (max-width: 500px) {
-	/* Adjust the max-width value to your desired breakpoint */
-	.left-infoBox, .right-infoBox {
-	  flex: 100%; /* Make them stack on top of each other */
-	}
-
-	.title-container-outline, .title-container {
-		top: 20%;
-	}
-
-	.supplementalInfo {
-		top: 60%;
-	}
-
-	/* Media query for screens 768px and smaller */
-	.info {
-		font-size: calc(30px);
-	}
-	.the {
-		font-size: calc(20px);
-	}
-	.supplementalInfo{
-		font-size: calc(16px);
-	}
-	.designer{
-		font-size: calc(16px);
-	}
   }
 
 html {
@@ -211,21 +147,20 @@ h2 {
 	text-align: right;
 	font-family: 'Kanit', sans-serif;
 	color: white;
-	font-weight: 900;
 }
 
-/* CSS */
 .button-81 {
-  background-color: #fff;
+  background-color: #efe7d4;
   border: 0 solid #e2e8f0;
   border-radius: 1.5rem;
   box-sizing: border-box;
   color: #4e7bae;
   cursor: pointer;
   display: inline-block;
-  font-family: 'EB Garamond', serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  -webkit-text-stroke-width: 0px;
   font-size: 1.1rem;
-  font-weight: 600;
   line-height: .2;
   padding: 1rem 1.6rem;
   text-align: center;

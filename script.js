@@ -30,20 +30,20 @@ import * as THREE from 'three';
 			const scene = new THREE.Scene();
 			renderer.setClearColor( 0x000000, 0 ); // the default
 			scene.background = null
-			scene.fog = new THREE.Fog( 0x7babe3, 13, 25 );
+			// scene.fog = new THREE.Fog( 0x7babe3, 13, 25 );
 
 			const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, .1, 50);
-			camera.position.set(2, 1, 6);
+			camera.position.set(-6, -6, -6);
 			
 
 			const controls = new OrbitControls( camera, renderer.domElement );
 			controls.target.set( 0, 0.5, 0 );
 			controls.update();
 			controls.enablePan = false;
-			controls.zoomSpeed = .4;
+			controls.zoomSpeed = 1;
 			controls.enableDamping = true;
 			controls.minDistance = 4;
-			controls.maxDistance = 30;
+			controls.maxDistance = 40;
 
 			const dracoLoader = new DRACOLoader();
 			dracoLoader.setDecoderPath( 'jsm/libs/draco/gltf/' );
@@ -55,11 +55,11 @@ import * as THREE from 'three';
 			var loadingDiv = document.getElementById("loadingDiv");
 			var pageDiv = document.getElementById("pageDiv");
 
-			loader.load( 'models/keames.glb', function ( gltf ) {
+			loader.load( 'resources/b17s.glb', function ( gltf ) {
 
 				const model = gltf.scene;
-				model.position.set(0, -.5, -1);
-				model.scale.set( 0.7, 0.7, 0.7);
+				model.position.set(0, 0, 0);
+				model.scale.set( 0.5, 0.5, 0.5);
 				scene.add( model );
 
 				model.traverse( function ( object ) {
@@ -78,9 +78,7 @@ import * as THREE from 'three';
 				animate();
 
 			}, undefined, function ( e ) {
-
 				console.error( e );
-
 			} );
 
 			const renderScene = new RenderPass( scene, camera );
